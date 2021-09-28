@@ -20,6 +20,19 @@ export const getIsrByEmployeeCode = async (req, res) => {
   res.json({ isr });
 };
 
+export const getDefaultEmployees = async (req, res) => {
+  try {
+    const count = await Empleado.estimatedDocumentCount();
+    if (count <= 0) return res.status(400).json({ message: "No existen empleados actualmente."});
+
+    const defaultEmployeers = await Empleado.find({})
+    res.status(200).json(defaultEmployeers)
+  } catch (error) {
+    console.error(error)
+    res.status(501).json({ message: "Error", error })
+  }
+}
+
 export const createEmployee = async (req, res) => {
   res.json("Crear Empleado");
 };

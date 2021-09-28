@@ -19,5 +19,6 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 
 var router = (0, _express.Router)();
 router.post("/proyeccionisr", [verifyEmployee.hasCode, verifyEmployee.exists], empleadosController.getIsrByEmployeeCode);
+router.get("/defaultemployeers", empleadosController.getDefaultEmployees);
 var _default = router;
 exports["default"] = _default;

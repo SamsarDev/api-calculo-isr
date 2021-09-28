@@ -6,11 +6,10 @@ const router = Router();
 
 router.post(
   "/proyeccionisr",
-  [
-    verifyEmployee.hasCode,
-    verifyEmployee.exists
-  ],
+  [verifyEmployee.hasCode, verifyEmployee.exists],
   empleadosController.getIsrByEmployeeCode
 );
+
+router.get("/defaultemployeers", empleadosController.getDefaultEmployees);
 
 export default router;

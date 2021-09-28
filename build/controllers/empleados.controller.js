@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.deleteEmployeeByCode = exports.updateEmployeeByCode = exports.createEmployee = exports.getIsrByEmployeeCode = void 0;
+exports["default"] = exports.deleteEmployeeByCode = exports.updateEmployeeByCode = exports.createEmployee = exports.getDefaultEmployees = exports.getIsrByEmployeeCode = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -62,36 +62,70 @@ var getIsrByEmployeeCode = /*#__PURE__*/function () {
 
 exports.getIsrByEmployeeCode = getIsrByEmployeeCode;
 
-var createEmployee = /*#__PURE__*/function () {
+var getDefaultEmployees = /*#__PURE__*/function () {
   var _ref2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(req, res) {
+    var count, defaultEmployeers;
     return _regenerator["default"].wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            res.json("Crear Empleado");
+            _context2.prev = 0;
+            _context2.next = 3;
+            return _Empleado["default"].estimatedDocumentCount();
 
-          case 1:
+          case 3:
+            count = _context2.sent;
+
+            if (!(count <= 0)) {
+              _context2.next = 6;
+              break;
+            }
+
+            return _context2.abrupt("return", res.status(400).json({
+              message: "No existen empleados actualmente."
+            }));
+
+          case 6:
+            _context2.next = 8;
+            return _Empleado["default"].find({});
+
+          case 8:
+            defaultEmployeers = _context2.sent;
+            res.status(200).json(defaultEmployeers);
+            _context2.next = 16;
+            break;
+
+          case 12:
+            _context2.prev = 12;
+            _context2.t0 = _context2["catch"](0);
+            console.error(_context2.t0);
+            res.status(501).json({
+              message: "Error",
+              error: _context2.t0
+            });
+
+          case 16:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2);
+    }, _callee2, null, [[0, 12]]);
   }));
 
-  return function createEmployee(_x3, _x4) {
+  return function getDefaultEmployees(_x3, _x4) {
     return _ref2.apply(this, arguments);
   };
 }();
 
-exports.createEmployee = createEmployee;
+exports.getDefaultEmployees = getDefaultEmployees;
 
-var updateEmployeeByCode = /*#__PURE__*/function () {
+var createEmployee = /*#__PURE__*/function () {
   var _ref3 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(req, res) {
     return _regenerator["default"].wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            res.json("Actualizar Empleado");
+            res.json("Crear Empleado");
 
           case 1:
           case "end":
@@ -101,20 +135,20 @@ var updateEmployeeByCode = /*#__PURE__*/function () {
     }, _callee3);
   }));
 
-  return function updateEmployeeByCode(_x5, _x6) {
+  return function createEmployee(_x5, _x6) {
     return _ref3.apply(this, arguments);
   };
 }();
 
-exports.updateEmployeeByCode = updateEmployeeByCode;
+exports.createEmployee = createEmployee;
 
-var deleteEmployeeByCode = /*#__PURE__*/function () {
+var updateEmployeeByCode = /*#__PURE__*/function () {
   var _ref4 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(req, res) {
     return _regenerator["default"].wrap(function _callee4$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
-            res.json("Eliminar Empleado");
+            res.json("Actualizar Empleado");
 
           case 1:
           case "end":
@@ -124,8 +158,31 @@ var deleteEmployeeByCode = /*#__PURE__*/function () {
     }, _callee4);
   }));
 
-  return function deleteEmployeeByCode(_x7, _x8) {
+  return function updateEmployeeByCode(_x7, _x8) {
     return _ref4.apply(this, arguments);
+  };
+}();
+
+exports.updateEmployeeByCode = updateEmployeeByCode;
+
+var deleteEmployeeByCode = /*#__PURE__*/function () {
+  var _ref5 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(req, res) {
+    return _regenerator["default"].wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            res.json("Eliminar Empleado");
+
+          case 1:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5);
+  }));
+
+  return function deleteEmployeeByCode(_x9, _x10) {
+    return _ref5.apply(this, arguments);
   };
 }();
 
