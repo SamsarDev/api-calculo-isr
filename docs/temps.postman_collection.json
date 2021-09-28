@@ -1,0 +1,37 @@
+{
+	"info": {
+		"_postman_id": "5a91dee8-1d5f-4fce-a667-42691dfae145",
+		"name": "temps",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/proyeccionisr",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"colaborador\": 2233,\r\n    \"fecha_ingreso\": \"2021-05-11\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/proyeccionisr",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"proyeccionisr"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
