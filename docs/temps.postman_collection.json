@@ -18,7 +18,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"colaborador\": 2233,\r\n    \"fecha_ingreso\": \"2021-05-11\"\r\n}"
+					"raw": "{\r\n    \"colaborador\": 2233,\r\n    \"fecha_ingreso\": \"2021-01-01\"\r\n}"
 				},
 				"url": {
 					"raw": "localhost:3000/proyeccionisr",
@@ -29,6 +29,39 @@
 					"path": [
 						"proyeccionisr"
 					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/defaultemployeers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/defaultemployeers",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"defaultemployeers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
 				}
 			},
 			"response": []

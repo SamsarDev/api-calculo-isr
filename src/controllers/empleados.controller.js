@@ -25,7 +25,9 @@ export const getDefaultEmployees = async (req, res) => {
     const count = await Empleado.estimatedDocumentCount();
     if (count <= 0) return res.status(400).json({ message: "No existen empleados actualmente."});
 
-    const defaultEmployeers = await Empleado.find({})
+    const defaultCodes = ["2233", "1881", "002332"];
+
+    const defaultEmployeers = await Empleado.find({ codigo: { $in: defaultCodes } });
     res.status(200).json(defaultEmployeers)
   } catch (error) {
     console.error(error)
